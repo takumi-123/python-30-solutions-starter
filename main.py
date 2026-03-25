@@ -1,6 +1,4 @@
-print("Hello Python")
-name = "Alice"
-age = 20
-print(f"My age is {age}")
-print(f"My name is {name}")
-print(f"My name is {name} and I am {age} years old")
+name = input("名前を入力してください")
+print(f"Hello, {name}!")
+age = int(input("年齢を入力してください"))
+print(f"あなたの年齢は{age}です")
