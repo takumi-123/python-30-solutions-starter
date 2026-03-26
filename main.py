@@ -1,12 +1,9 @@
-fruits = "apple banana orange"
-word = fruits.split(" ")
-print(word)
+import math
+import random as r
+import greet
+print(f"25の平方根は{math.sqrt(25)}です")
+print(f"円周率は{math.pi}です")
 
-mozi = {"Hello", "World", "python"}
-word2 = " ".join(mozi)
-print(word2)
-
-number = "one two three"
-word3 = number.split()
-number_s = "_".join(word3)
-print(number_s)
+num = r.randint(1, 6)
+print(num)
+greet.hello("Python")
