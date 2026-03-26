@@ -1,13 +1,15 @@
-count = 1
-while count < 4:
-    print(count)
-    count += 1
+def print_hello_python():
+    print("Hello Python")
 
-j = 0
-while j < 5:
-    print(j)
-    j += 1
-i = 0
-while i < 4:
-    print("Hello")
-    i += 1
+for i in range(3):
+    print_hello_python()
+
+def say_hello(name):
+    print(f"Hello {name}")
+    return name
+say_hello("Alice")
+
+def format_name(name2):
+    print(f"Hello {name2}")
+    return name2
+format_name("太郎")
