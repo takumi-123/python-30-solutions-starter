@@ -1,17 +1,8 @@
-try:
-    user_input = input("整数を入力してください")
-    number = int(user_input)
-    print(f"入力された数値は{number}です")
-except ValueError:
-    print("入力された値を整数に変換できません。整数を入力してください。")
+numbers = [1, 2, 3, 4, 5]
+squared_numbers = list(map(lambda x: x**2, numbers))
+print(squared_numbers)
 
 #2
-while True:
-    try:
-        users_input = input("整数を入力してください")
-        numbers = int(users_input)
-        print(f"あなたの入力した整数は{numbers}です")
-        break
-    except ValueError:
-        print("入力された値を整数に変換できません。整数を入力してください。") 
-               
+numbers2 = [1, 2, 3, 4, 5, 6, 7, 8, 9,10]
+even_numbsers = list(filter(lambda x: x % 2 == 0, numbers2))
+print(even_numbsers)
