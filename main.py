@@ -1,4 +1,14 @@
-from datetime import datetime, timedelta
-dt_obj = datetime(2023, 4, 1, 15, 30, 0)
-future_dt = dt_obj + timedelta(days=7)
-print(future_dt.strftime("%Y-%m-%d %H:%M;%S"))
+from typing import List
+name: str = "Alice"
+age: int = 20
+print(f"{name} is {age} years old")
+
+def add_numbers(a: int, b: int) -> int:
+    return a + b
+
+result = add_numbers(3, 5)
+print(result)
+
+numbers: list[int]= [10, 20, 30, 40, 50]
+total: int = sum(numbers)
+print(f"total: {total}")
