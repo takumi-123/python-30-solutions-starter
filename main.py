@@ -1,13 +1,20 @@
-import argparse
+import json
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("name")
-    parser.add_argument("-g", "--greet", default="Hello")
+data = {
+    "name": "John Doe",
+    "age": 30,
+    "isStudent": False,
+    "courses": [
+        {"title": "History", "credits": 3},
+        {"title": "Math", "creedits": 4}
+    ]
+}
 
-    args = parser.parse_args()
+with open("data.json", "w") as f:
+    json.dump(data, f, indent=4)
 
-    print(f"{args.greet}, {args.name}!")
+print("data.json has been created.")
+with open("data.json", "r") as f:
+    loaded_data = json.load(f)
 
-if __name__ == "__main__":
-    main()
+print(f"Name: {loaded_data['name']}") 
