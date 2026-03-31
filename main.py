@@ -1,10 +1,16 @@
-import logging
+import requests
+def main():   
+ #データを受け取る
+    url =  "https://jsonplaceholder.typicode.com/todos/1"
+    #GETリクエストを送信してレスポンスを受け取る
+    response = requests.get(url)
 
-def main():
-    logging.basicConfig(level=logging.INFO, format="%(levelname)s:%(message)s")
-    #2.ログメッセージの出力
-    logging.info("Processing data...")
-    logging.warning("something unpxected happend.")
+    #成功したかチェック
+    if response.status_code == 200:
+        #4 JSON データをpythonの辞書に変換
+        data = response.json()
+        #5 指定された形式で表示
+        print(f"title:{data['title']}")
 
 if __name__ == "__main__":
     main()
