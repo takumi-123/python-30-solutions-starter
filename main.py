@@ -1,20 +1,20 @@
-import json
+import requests
 
-data = {
-    "name": "John Doe",
-    "age": 30,
-    "isStudent": False,
-    "courses": [
-        {"title": "History", "credits": 3},
-        {"title": "Math", "creedits": 4}
-    ]
-}
+def main():
+    #データを受け取る
+    url = "https://jsonplaceholder.typicode.com/users/1"
+    #GETリクエストを送信してレスポンスを受け取る
+    response = requests.get(url)
 
-with open("data.json", "w") as f:
-    json.dump(data, f, indent=4)
+    #成功したかチェック
+    if response.status_code == 200:
+        #4 JSON データをpythonの辞書に変換
+        user_data = response.json()
+        #5 指定された形式で表示
+        print(f"Name:{user_data['name']}")
+        print(f"Email:{user_data['email']}")
+    else:
+        print(f"エラーが発生しました:{response.status_code}")
 
-print("data.json has been created.")
-with open("data.json", "r") as f:
-    loaded_data = json.load(f)
-
-print(f"Name: {loaded_data['name']}") 
+if __name__ == "__main__":
+    main()
