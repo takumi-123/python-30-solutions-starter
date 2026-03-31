@@ -1,20 +1,22 @@
-import requests
+import re
 
 def main():
-    #データを受け取る
-    url = "https://jsonplaceholder.typicode.com/users/1"
-    #GETリクエストを送信してレスポンスを受け取る
-    response = requests.get(url)
+    #テキスト定義
+    text = """
+Contact list:
+John Doe's email is john.doe@example.com.
+Jane Smith can be reached at jane.smith@example.org.
+For inquiries, please contact info@company.co.uk.
+Invalid email: user@.com or @domain.com
+"""
 
-    #成功したかチェック
-    if response.status_code == 200:
-        #4 JSON データをpythonの辞書に変換
-        user_data = response.json()
-        #5 指定された形式で表示
-        print(f"Name:{user_data['name']}")
-        print(f"Email:{user_data['email']}")
-    else:
-        print(f"エラーが発生しました:{response.status_code}")
+    #メアドのパターン定義
+    pattern = r"[\w\.-]+@[\w\.-]+"
+    emails = re.findall(pattern, text)
+
+    for email in emails:
+        print(email)
 
 if __name__ == "__main__":
     main()
+
